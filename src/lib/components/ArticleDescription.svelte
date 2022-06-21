@@ -2,7 +2,7 @@
 	export let description;
 	export let slug = '';
 
-	const href = slug && `/posts/${slug}`;
+	const href = slug && `${slug}`;
 </script>
 
 <p>

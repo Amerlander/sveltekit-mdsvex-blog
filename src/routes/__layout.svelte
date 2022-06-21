@@ -1,9 +1,23 @@
 <script>
 	import { page } from '$app/stores';
+	import lazyload from 'vanilla-lazyload';
+  	import { browser } from '$app/env';
+
+  if (browser && !document.lazyloadInstance) {
+    document.lazyloadInstance = new lazyload();
+  }
+  
+
+
 </script>
 
 <header>
-	<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
+	<hgroup>
+		<a href="/">
+			<h1 class:small={$page.url.pathname !== '/'}>Oral History Projekt </h1>
+		</a>
+		<p>Bundesstiftung Aufarbeitung</p>
+	</hgroup>
 </header>
 
 <main>
@@ -11,9 +25,11 @@
 </main>
 
 <footer>
-	<p>
-		Copyright &#169; <a href="https://twitter.com/mehdi_vasigh">Mehdi Vasigh</a>, {new Date().getFullYear()}
-	</p>
+<hr>
+	<p><i>Die Interviews haben Tine Lippert, Nancy Göhring und Irina Maslennikova geführt. Die redaktionelle Zusammenfassung ist von Sven Bardua</i></p>
+
+	<p>Copyright &#169; <a href="https://papierfabrik-hohenofen.de" target="_blank">PPH</a>, {new Date().getFullYear()}</p>
+
 </footer>
 
 <style>
@@ -55,5 +71,14 @@
 
 	footer {
 		margin-top: calc(var(--spacing-unit) * 8);
+	}
+
+	hgroup h1, hgroup p {
+		margin: 0px;
+	}
+
+	:global(img) {
+		max-width: 100%;
+		height: auto;
 	}
 </style>

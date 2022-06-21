@@ -2,7 +2,7 @@
 	export let title;
 	export let description;
 
-	const siteTitle = 'SvelteKit + MDsveX Blog';
+	const siteTitle = 'MDSveX Blog Playground Template';
 	const formattedTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 </script>
 

@@ -1,0 +1,8 @@
+---
+title: "Moin!"
+description: "..."
+template: foo,bar
+published: true
+---
+
+Default language
