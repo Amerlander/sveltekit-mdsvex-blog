@@ -53,6 +53,5 @@
 </script>
 
 <LayoutLoader {meta}>
-	LOREM
 	<svelte:component this={Page} {_subpages} />
 </LayoutLoader>
