@@ -54,7 +54,7 @@
 
     {#each src.files as file}
         {@const newSrc = Object.values(file)[0]}
-        <svelte:self src={newSrc} {alt} />
+        <svelte:self src={newSrc} {alt} {figcaption} />
     {/each}
 
 {/if}
