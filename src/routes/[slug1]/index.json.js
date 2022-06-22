@@ -2,19 +2,31 @@ export const folderFromPath = (path) => path.match(/([\w-]+)\/(\/index)?\.(svelt
 import { slugFromPath,  } from '$lib/util';
 // import { page } from '$app/stores';
 
+
 // const pathname = $page.url.pathname;
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ url, params }) {
-	const modules = {
-		...(import.meta.glob(`../../content/*/*/index.{md,svx,svelte}`)),
-		...(import.meta.glob(`../../content/*/*.{md,svx,svelte}`))
-	};
+	let modules = [];
+	let folder = '';
+	if(params.slug1 === 'index'){
+		modules = {
+			...(import.meta.glob(`../../content/*/index.{md,svx,svelte}`)),
+			...(import.meta.glob(`../../content/*.{md,svx,svelte}`))
+		};
+	} else {
+		folder = `${params.slug1}/`
+		modules = {
+			...(import.meta.glob(`../../content/*/*/index.{md,svx,svelte}`)),
+			...(import.meta.glob(`../../content/*/*.{md,svx,svelte}`))
+		};
+	}
+	console.log(modules)
 
 	let matches = Object.fromEntries(
 		Object.entries(modules).filter(([path, resolver]) => {
 			let filename = slugFromPath(path);
-			return (filename.startsWith(`${params.slug1}/`))
+			return (filename.startsWith(folder))
 		}
 	));
 
