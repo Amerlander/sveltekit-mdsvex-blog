@@ -1,81 +1,58 @@
 <script context="module">
+	import { slugFromPath } from '$lib/util';
+	import LayoutLoader from '$lib/layouts/LayoutLoader.svelte'
+
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ fetch }) {
-		// Use a `limit` querystring parameter to fetch a limited number of articles
-		// e.g. fetch('articles.json?limit=5') for 5 most recent articles
-		const articles = await fetch('/articles.json?orderBy=date').then((res) => res.json());
-		const people = await fetch('/people.json').then((res) => res.json());
+	export async function load({ url, fetch, params }) {
+
+		
+		const subJson = await fetch('/index.json').then((res) => res.json());
+		
+		let _subpages = [];
+		for (const page of subJson) {
+			const pageJson = await fetch(`/${page.slug}.json`).then((res) => res.json());
+			_subpages[page.slug] = pageJson;
+		}
+
+		let Page;
+
+		const pages = await import.meta.globEager(`../content/index{.,.de.,.en.}{md,svx}`);
+		let match;
+        for (const [path, resolver] of Object.entries(pages)) {
+            if (slugFromPath(path) === 'index') {
+                match = [path, resolver];
+                break;
+            }
+        }
+
+        if (!match) {
+            return {
+                status: 404
+            };
+        }
+		
+	    Page = match[1].default;
+		let meta = match[1].metadata ?? {}		
 
 		return {
 			props: {
-				articles,
-				people
+				Page,
+				meta,
+				_subpages
 			}
 		};
 	}
-
 </script>
 
 <script>
-	import PageHead from '$lib/components/PageHead.svelte';
-	import Article from '$lib/components/Article.svelte';
-	import ArticleTitle from '$lib/components/ArticleTitle.svelte';
-	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
-	import ArticleDescription from '$lib/components/ArticleDescription.svelte';
-	import ArticleImage from '$lib/components/ArticleImage.svx';
-
-	export let articles;
-	export let people;
+	export let Page;
+	export let meta;
+	export let _subpages
 </script>
 
-<PageHead title="Start" description="Blog Playground" />
-
-<a href='/articles'>&rarr; Got to Page where I played with templates and components</a>
-
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-<a href='/about'>Read More &rarr;</a>
-
----
-
-{#each articles as { slug, title, author, description, date, image }}
-	<Article>
-		<div>
-			<div class='articleImage'>
-				<ArticleImage {image} {slug} alt={title} />
-			</div>
-			<ArticleTitle {slug} {title} />
-			<ArticleMeta {author} {date} />
-			<ArticleDescription {description} {slug} />
-		</div>
-	</Article>
-{/each}
-
----
-
-{#each people as { slug, title, author, description, date, image }}
-	<Article>
-		<div class='articleImage'>
-			<ArticleImage {image} {slug} alt={title} />
-		</div>
-		<div>
-			Interview
-			<ArticleTitle {slug} {title} />
-			<ArticleMeta {author} {date} />
-			<ArticleDescription {description} {slug} />
-		</div>
-	</Article>
-{/each}
-
-<slot />
-
-<style>
-	.articleImage {
-		width: 100px;
-		float: left;
-		margin-right: 1em;
-	}
-</style>
+<LayoutLoader {meta}>
+	LOREM
+	<svelte:component this={Page} {_subpages} />
+</LayoutLoader>

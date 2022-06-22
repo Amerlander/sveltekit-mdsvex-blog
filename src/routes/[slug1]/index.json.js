@@ -21,7 +21,6 @@ export async function get({ url, params }) {
 			...(import.meta.glob(`../../content/*/*.{md,svx,svelte}`))
 		};
 	}
-	console.log(modules)
 
 	let matches = Object.fromEntries(
 		Object.entries(modules).filter(([path, resolver]) => {

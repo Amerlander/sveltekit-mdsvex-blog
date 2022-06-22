@@ -1,6 +1,7 @@
 ---
-title: "This pages import some images"
+title: "Page using Glob import"
 description: "..."
+image: image.jpg
 author: ""
 date: "2021-05-03"
 template: blog
