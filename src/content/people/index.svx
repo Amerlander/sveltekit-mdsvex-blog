@@ -1,8 +1,8 @@
 ---
-title: "Moin!"
+title: "People"
 description: "..."
 template: foo,bar
 published: true
 ---
 
-Default language
+Lorem Ipsum
