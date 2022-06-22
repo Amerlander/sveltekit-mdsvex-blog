@@ -6,7 +6,6 @@ published: true
 ---
 
 <script>
-    import { browser } from '$app/env';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import Article from '$lib/components/Article.svelte';
 	import ArticleTitle from '$lib/components/ArticleTitle.svelte';
@@ -28,35 +27,37 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 <a href='/about'>Read More &rarr;</a>
 
 ---
-{#if browser}
-{#each _subpages.articles as { slug, title, author, description, date, image }}
-	<Article>
-		<div>
-			<div class='articleImage'>
-				<ArticleImage {image} {slug} alt={title} />
+{#if typeof _subpages.articles != 'undefined'}
+	{#each _subpages.articles as { slug, title, author, description, date, image }}
+		<Article>
+			<div>
+				<div class='articleImage'>
+					<ArticleImage {image} {slug} alt={title} />
+				</div>
+				<ArticleTitle {slug} {title} />
+				<ArticleMeta {author} {date} />
+				<ArticleDescription {description} {slug} />
 			</div>
-			<ArticleTitle {slug} {title} />
-			<ArticleMeta {author} {date} />
-			<ArticleDescription {description} {slug} />
-		</div>
-	</Article>
-{/each}
+		</Article>
+	{/each}
+{/if}
 
 ---
 
-{#each _subpages.people as { slug, title, author, description, date, image }}
-	<Article>
-		<div class='articleImage'>
-			<ArticleImage {image} {slug} alt={title} />
-		</div>
-		<div>
-			Interview
-			<ArticleTitle {slug} {title} />
-			<ArticleMeta {author} {date} />
-			<ArticleDescription {description} {slug} />
-		</div>
-	</Article>
-{/each}
+{#if typeof _subpages.people != 'undefined'}
+	{#each _subpages.people as { slug, title, author, description, date, image }}
+		<Article>
+			<div class='articleImage'>
+				<ArticleImage {image} {slug} alt={title} />
+			</div>
+			<div>
+				Interview
+				<ArticleTitle {slug} {title} />
+				<ArticleMeta {author} {date} />
+				<ArticleDescription {description} {slug} />
+			</div>
+		</Article>
+	{/each}
 {/if}
 
 
