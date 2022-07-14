@@ -1,6 +1,7 @@
 <script>
     // import Image from "svelte-image";
     import { Image } from '@rodneylab/sveltekit-components';
+    import { SwiperSlide } from 'swiper/svelte';
     // import exifParser from "fast-exif";
     export let src;
     export let alt = '';
@@ -43,12 +44,23 @@
         { srcset: src.srcsetWebp, type: 'image/jpeg' },
     ]}
 
-    <figure>
-        <Image {alt} width={src.meta.width} height={src.meta.height} src={src.meta.src} {sources} maxWidth='100%' />
-        {#if figcaption}
-            <figcaption>{alt}</figcaption>
-        {/if}
-    </figure>
+    {#if src.options.swiper === 'true' }
+        <SwiperSlide class="slide">
+            <figure>
+                <Image {alt} width={(src.meta.width / src.meta.height) * 400 + 'px'} height={'400px'} src={src.meta.src} {sources} maxWidth={'auto'} />
+                {#if figcaption}
+                    <figcaption>{alt}</figcaption>
+                {/if}
+            </figure>
+        </SwiperSlide>
+    {:else}
+        <figure>
+            <Image {alt} width={src.meta.width} height={src.meta.height} src={src.meta.src} {sources} maxWidth={'auto'} />
+            {#if figcaption}
+                <figcaption>{alt}</figcaption>
+            {/if}
+        </figure>
+    {/if}
 
 {:else if Array.isArray(src.files)}
 

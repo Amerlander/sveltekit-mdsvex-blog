@@ -2,6 +2,7 @@
 // import remarkGfm from 'remark-gfm';
 // import remarkMermaid from 'remark-mermaid';
 import remarkAbbr from 'remark-abbr';
+import remarkUnwrapImages from "remark-unwrap-images";
 import remarkRelativeImages from "mdsvex-relative-images";
 import remarkContainers from 'remark-containers';
 import rehypeSlug from 'rehype-slug';
@@ -30,6 +31,7 @@ export default {
 		// [remarkMermaid, { simple: true }],
 		// remarkGfm,
 		remarkFrontmatterImport,
+		remarkUnwrapImages,
 		remarkRelativeImages
 	],
 	rehypePlugins: [

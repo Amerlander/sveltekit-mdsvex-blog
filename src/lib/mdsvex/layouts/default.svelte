@@ -5,7 +5,7 @@
 </script>
 
 <script>
-    	import { onMount } from 'svelte';
+    import { onMount } from 'svelte';
 	import { browser } from '$app/env';
 
 	onMount(() => {

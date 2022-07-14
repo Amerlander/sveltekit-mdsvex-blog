@@ -29,6 +29,7 @@
     "svelte": "^3.34.0",
     "svelte-image": "^0.2.9",
     "svelte-typewriter": "^3.0.0-alpha.11",
+    "swiper": "^8.2.4",
     "vanilla-lazyload": "^17.8.2",
     "vite-imagetools": "^4.0.4"
   },
@@ -36,6 +37,7 @@
   "dependencies": {
     "fast-exif": "^1.0.1",
     "remark-containers": "^1.2.0",
+    "remark-unwrap-images": "^3.0.1",
     "unist-util-visit": "^4.1.0"
   }
 }

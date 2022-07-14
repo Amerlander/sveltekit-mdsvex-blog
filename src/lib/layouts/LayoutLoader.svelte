@@ -54,6 +54,6 @@
             <slot />
         </svelte:component>
     {:else}
-    <slot />
+        <slot />
     {/if}
 {/if}

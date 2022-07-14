@@ -14,6 +14,7 @@ const config = {
 		// svelteImage()
 	],
 	kit: {
+		trailingSlash: 'always',
 		// hydrate the <div id="svelte"> element in src/app.html
 		adapter: adapter({
 			pages: 'build',

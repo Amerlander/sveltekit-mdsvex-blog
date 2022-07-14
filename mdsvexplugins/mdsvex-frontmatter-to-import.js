@@ -16,7 +16,7 @@ export default function formatterToImport() {
       // if all thumbnails will have the same sizes we can set them here, avoiding putting
       // them in markdown formatter
     //   console.log(file)
-      const scripts = `import thumbnail from "${file}?w=200";\n
+      const scripts = `import thumbnail from "${file}?jpeg&w=300";\n
       metadata.image=thumbnail;\n`;
       let is_script = false;
       visit(tree, 'html', (node) => {

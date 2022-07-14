@@ -24,7 +24,7 @@
 	<slot />
 </main>
 
-<footer>
+<footer class="container">
 <hr>
 	<p><i>Die Interviews haben Tine Lippert, Nancy Göhring und Irina Maslennikova geführt. Die redaktionelle Zusammenfassung ist von Sven Bardua</i></p>
 
