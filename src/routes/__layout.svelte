@@ -26,9 +26,8 @@
 
 <footer class="container">
 <hr>
-	<p><i>Die Interviews haben Tine Lippert, Nancy Göhring und Irina Maslennikova geführt. Die redaktionelle Zusammenfassung ist von Sven Bardua</i></p>
 
-	<p>Copyright &#169; <a href="https://papierfabrik-hohenofen.de" target="_blank">PPH</a>, {new Date().getFullYear()}</p>
+	<p>Copyright &#169; <a href="#" target="_blank">Rights Owner</a>, {new Date().getFullYear()}</p>
 
 </footer>
 
