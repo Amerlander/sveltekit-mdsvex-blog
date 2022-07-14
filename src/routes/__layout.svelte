@@ -14,9 +14,8 @@
 <header>
 	<hgroup>
 		<a href="/">
-			<h1 class:small={$page.url.pathname !== '/'}>Oral History Projekt </h1>
+			<h1 class:small={$page.url.pathname !== '/'}>My Blog</h1>
 		</a>
-		<p>Bundesstiftung Aufarbeitung</p>
 	</hgroup>
 </header>
 
