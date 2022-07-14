@@ -8,7 +8,7 @@ template: blog
 published: true
 ---
 
-[Link to upper Page](./)
+[Link to upper Page](../)
 
 Single Image:
 
