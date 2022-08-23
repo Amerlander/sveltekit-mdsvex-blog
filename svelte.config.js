@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
+import preprocess from 'svelte-preprocess';
 // import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 // import relativeImages from "mdsvex-relative-images";
 // import svelteImage from "svelte-image";
@@ -11,6 +12,7 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	preprocess: [
 		md.mdsvex(mdsvexConfig),
+		preprocess()
 		// svelteImage()
 	],
 	kit: {
