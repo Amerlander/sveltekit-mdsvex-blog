@@ -1,4 +1,5 @@
 <script>
+	import MainMenu from '$lib/components/menues/MainMenu.svelte';
 	import { page } from '$app/stores';
 	import lazyload from 'vanilla-lazyload';
   	import { browser } from '$app/env';
@@ -17,6 +18,8 @@
 			<h1 class:small={$page.url.pathname !== '/'}>My Blog</h1>
 		</a>
 	</hgroup>
+
+	<MainMenu />
 </header>
 
 <main>

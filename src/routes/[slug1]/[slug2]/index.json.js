@@ -7,13 +7,15 @@ import { slugFromPath,  } from '$lib/util';
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ url, params }) {
 	const modules = {
-		...(import.meta.glob(`../../../content/*/*/*/index.{md,svx,svelte}`)),
-		...(import.meta.glob(`../../../content/*/*/*.{md,svx,svelte}`))
+		...(import.meta.glob(`../../../content/*/*/*/index.{md,svx}`)),
+		...(import.meta.glob(`../../../content/*/*/*.{md,svx}`))
 	};
-
+	// console.log(modules)
 	let matches = Object.fromEntries(
 		Object.entries(modules).filter(([path, resolver]) => {
-			let filename = slugFromPath(path);
+			// console.log(path);
+			const filename = slugFromPath(path);
+			// console.log(filename);
 			return (filename.startsWith(`${params.slug1}/${params.slug2}/`))
 		}
 	));

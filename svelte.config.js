@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 // import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 // import relativeImages from "mdsvex-relative-images";
 // import svelteImage from "svelte-image";
-import { imagetools } from 'vite-imagetools';
+
 import md from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 
@@ -26,10 +26,7 @@ const config = {
 			default: true,
 			onError: 'continue'
 		},
-		vite: {
-			plugins: [imagetools({ force: true })],
-		},
-	},
+	}
 };
 
 export default config;

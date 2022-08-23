@@ -4,9 +4,9 @@
   "author": "Mehdi Vasigh <mehdi.vasigh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
     "lint": "prettier --check --plugin-search-dir=. .",
     "format": "prettier --write --plugin-search-dir=. ."
   },
@@ -14,9 +14,9 @@
     "@rodneylab/sveltekit-components": "^0.2.13",
     "@rollup/plugin-dynamic-import-vars": "^1.4.3",
     "@sveltejs/adapter-static": "next",
-    "@sveltejs/kit": "next",
+    "@sveltejs/kit": "1.0.0-next.405",
     "mdsvex": "^0.10.6",
-    "mdsvex-relative-images": "github:Amerlander/mdsvex-relative-images#addViteImageProcessingParams",
+    "mdsvex-relative-images": "github:Amerlander/mdsvex-relative-images",
     "mermaid.cli": "^0.3.6",
     "prettier": "~2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
@@ -31,13 +31,17 @@
     "svelte-typewriter": "^3.0.0-alpha.11",
     "swiper": "^8.2.4",
     "vanilla-lazyload": "^17.8.2",
+    "vite": "^3.0.9",
     "vite-imagetools": "^4.0.4"
   },
   "type": "module",
   "dependencies": {
     "fast-exif": "^1.0.1",
+    "node-sass": "^7.0.1",
     "remark-containers": "^1.2.0",
     "remark-unwrap-images": "^3.0.1",
+    "save-dev": "^0.0.1-security",
+    "svelte-preprocess": "^4.10.7",
     "unist-util-visit": "^4.1.0"
   }
 }

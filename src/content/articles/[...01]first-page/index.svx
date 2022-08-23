@@ -1,6 +1,6 @@
 ---
 title: "First Post"
-description: "..."
+description: "Lorem ipsum dolor sit amet ..."
 image: "image.jpg"
 author: ""
 date: "2021-05-03"

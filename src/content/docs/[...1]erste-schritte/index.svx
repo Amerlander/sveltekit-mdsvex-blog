@@ -1,0 +1,6 @@
+---
+title: 25 vorinstallierte Programme
+description: Der Calliope mini 2.0 verfügt über ein zusätzliches Flashlaufwerk auf dem 25 Programme vorinstalliert sind. Wie diese gestartet werden können, kannst du hier nachlesen.
+template: 
+published: true
+---

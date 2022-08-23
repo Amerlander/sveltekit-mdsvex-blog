@@ -7,7 +7,6 @@
 	 */
 	export async function load({ url, fetch, params }) {
 
-		
 		const subJson = await fetch('/index.json').then((res) => res.json());
 		
 		let _subpages = [];
@@ -49,7 +48,7 @@
 <script>
 	export let Page;
 	export let meta;
-	export let _subpages
+	export let _subpages;
 </script>
 
 <LayoutLoader {meta}>

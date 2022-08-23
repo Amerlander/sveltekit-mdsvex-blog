@@ -1,0 +1,29 @@
+---
+title: DOCS
+description: 
+template: 
+published: true
+---
+
+# {title}
+
+
+<script>
+    export let _subpages = {};
+    console.log(typeof _subpages)
+</script>
+
+
+{#if typeof _subpages === 'object'}
+	{#each _subpages as page}
+			<div>
+
+				# {page.meta.title}
+                
+                {page.meta.description}
+
+                {page.meta.slug}
+
+			</div>
+	{/each}
+{/if}
